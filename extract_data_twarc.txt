@@ -1,0 +1,14 @@
+How to retrieve tweets from tweet ids using twarc
+
+Save the tweet ids in a file called tweet_ids.txt
+
+Extract the tweets as a json file with the python code stated below:
+
+'twarc hydrate tweet_ids.txt > tweets_hydrated.jsonl'
+
+Convert the json file to text file. I saved mine with tweet_data.txt
+
+Extract the required columns from the file. I extracted the text, date and location
+with the linux( or git) below
+
+grep -e "text" -e "created_at" -e "location" -e "id" tweet_data.txt | awk -F "," '{print $1 $2 $4 $16}' > output.txt
