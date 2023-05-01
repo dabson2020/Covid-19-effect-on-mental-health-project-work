@@ -12,3 +12,4 @@ Extract the required columns from the file. I extracted the text, date and locat
 with the linux( or git) below
 
 grep -e "text" -e "created_at" -e "location" -e "id" tweet_data.txt | awk -F "," '{print $1 $2 $4 $16}' > output.txt
+OR awk -F',' '{print $1,$2,$4,$16}' tweets_hydrated.txt > output.txt
